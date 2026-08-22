@@ -13,22 +13,13 @@ export const Footer: React.FC = () => {
           
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-flex items-center gap-2.5 sm:gap-3 group">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 relative shrink-0">
+            <Link href="/" className="inline-block">
+              <div className="h-12 sm:h-14 w-48 sm:w-56 relative">
                 <Image
-                  src="/images/icon.svg"
-                  alt="ZapIn Icon"
-                  fill
-                  sizes="(max-width: 640px) 40px, 44px"
-                  className="object-contain"
-                />
-              </div>
-              <div className="h-10 sm:h-11 w-40 sm:w-48 relative shrink-0">
-                <Image
-                  src="/images/zapinputih.svg"
+                  src="/images/zapin-white-full.svg"
                   alt="ZapIn — Powering Your Journey, Smarter!"
                   fill
-                  sizes="(max-width: 640px) 160px, 192px"
+                  sizes="(max-width: 640px) 192px, 224px"
                   className="object-contain object-left"
                 />
               </div>

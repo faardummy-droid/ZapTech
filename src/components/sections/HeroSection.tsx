@@ -136,33 +136,21 @@ export const HeroSection: React.FC = () => {
       {/* 5. Centered Hero Content */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center flex flex-col items-center justify-center my-auto">
         
-        {/* Brand Official Dual SVG Logo (icon.svg + zapinputih.svg) */}
+        {/* Brand Official Unified SVG Logo (100% Center Aligned) */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center justify-center gap-2.5 sm:gap-3.5 mb-6 mx-auto"
+          className="relative w-64 sm:w-80 md:w-96 h-16 sm:h-20 md:h-22 mb-6 mx-auto flex items-center justify-center"
         >
-          <div className="w-11 h-11 sm:w-14 sm:h-14 relative shrink-0">
-            <Image
-              src="/images/icon.svg"
-              alt="ZapIn Icon"
-              fill
-              sizes="(max-width: 640px) 44px, 56px"
-              className="object-contain drop-shadow-xl"
-              priority
-            />
-          </div>
-          <div className="w-44 sm:w-56 h-11 sm:h-14 relative shrink-0">
-            <Image
-              src="/images/zapinputih.svg"
-              alt="ZapIn — Powering Your Journey, Smarter!"
-              fill
-              sizes="(max-width: 640px) 176px, 224px"
-              className="object-contain object-left drop-shadow-xl"
-              priority
-            />
-          </div>
+          <Image
+            src="/images/zapin-white-full.svg"
+            alt="ZapIn — Powering Your Journey, Smarter!"
+            fill
+            sizes="(max-width: 640px) 256px, 384px"
+            className="object-contain drop-shadow-xl"
+            priority
+          />
         </motion.div>
 
         {/* Dynamic Looping Centered Headline */}
