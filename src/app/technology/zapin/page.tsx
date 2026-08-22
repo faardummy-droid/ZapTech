@@ -11,15 +11,7 @@ import {
   ArrowRight,
   CheckCircle2,
   Clock,
-  AlertTriangle,
   MapPin,
-  Cpu,
-  Layers,
-  DollarSign,
-  QrCode,
-  Sparkles,
-  RefreshCw,
-  Building2,
   TrendingUp,
   CreditCard,
   ShieldCheck,
@@ -33,7 +25,7 @@ const ZAPIN_STICKY_STATES = [
     step: "01",
     title: "Real-Time Availability Stream",
     subtitle: "Telemetry & Dock Live Status",
-    description: "ZapIN ingests live contactor telemetry every 500ms over MQTT TLS. Drivers view actual plug availability before embarking on their journey.",
+    description: "ZapIn ingests live contactor telemetry every 500ms over MQTT TLS. Drivers view actual plug availability before embarking on their journey.",
     badge: "STATE 01: AVAILABILITY",
     screenContent: {
       title: "Hub #01 - Plaza Senayan",
@@ -53,7 +45,7 @@ const ZAPIN_STICKY_STATES = [
     screenContent: {
       title: "Target Dock Forecast",
       dockCount: "Est. Release: 6 Mins",
-      powerRate: "XGBoost Confidence: 94%",
+      powerRate: "Confidence: 94%",
       statusText: "OCCUPANCY RISK: 84% (HIGH)",
       statusColor: "#EE7797",
       actionText: "Trigger Auto-Reroute",
@@ -63,7 +55,7 @@ const ZAPIN_STICKY_STATES = [
     step: "03",
     title: "AI Dynamic Rerouting",
     subtitle: "Proactive Navigation Shift",
-    description: "If high queue risk is detected at Target Station A, ZapIN automatically reroutes the driver to nearby Station B with guaranteed idle capacity.",
+    description: "If high queue risk is detected at Target Station A, ZapIn automatically reroutes the driver to nearby Station B with guaranteed idle capacity.",
     badge: "STATE 03: REROUTING",
     screenContent: {
       title: "Reroute → Hub #02 SCBD",
@@ -107,7 +99,7 @@ const ZAPIN_STICKY_STATES = [
   {
     step: "06",
     title: "Automated Payment & E-Receipt",
-    subtitle: "QRIS & GoPay Settlement",
+    subtitle: "QRIS & Digital Settlement",
     description: "Seamless automatic wallet deduction upon session end. Instant e-receipt generated with automated revenue share to host business partner.",
     badge: "STATE 06: PAYMENT",
     screenContent: {
@@ -119,13 +111,15 @@ const ZAPIN_STICKY_STATES = [
       actionText: "Download Receipt",
     },
   },
-];export default function ZapINProductPage() {
+];
+
+export default function ZapInProductPage() {
   const [activeStepIdx, setActiveStepIdx] = useState<number>(0);
   const currentStep = ZAPIN_STICKY_STATES[activeStepIdx];
 
   return (
     <div className="py-12 space-y-24 bg-[#F0F7FB] selection:bg-[#076FB8]/20 selection:text-[#076FB8]">
-      {/* 1. ZapIN Tech Hero */}
+      {/* 1. ZapIn Tech Hero */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#043E69] text-white rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl border border-[#076FB8]/30">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#EE7797]/20 rounded-full blur-3xl pointer-events-none" />
@@ -133,9 +127,9 @@ const ZAPIN_STICKY_STATES = [
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-[#FEC958] border border-white/20 backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#FEC958]">
                 <Zap className="w-3.5 h-3.5 fill-[#FEC958]" />
-                <span>ZapTech Flagship Innovation</span>
+                <span>ZapIn Architecture</span>
               </div>
 
               <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-[1.15] text-white">
@@ -144,10 +138,10 @@ const ZAPIN_STICKY_STATES = [
               </h1>
 
               <p className="text-base sm:text-lg text-blue-100/90 leading-relaxed max-w-xl">
-                ZapIN combines real-time IoT station telemetry, availability prediction algorithms, dynamic rerouting, and 15-minute spot locks to eliminate EV range anxiety.
+                ZapIn combines real-time IoT station telemetry, availability prediction algorithms, dynamic rerouting, and 15-minute spot locks to eliminate EV range anxiety.
               </p>
 
-              <div className="pt-2 flex flex-wrap gap-3 text-xs font-medium text-blue-100/80">
+              <div className="pt-2 flex flex-wrap gap-3 text-xs font-mono font-medium text-blue-100/80">
                 <span className="px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm">
                   ● Prototype Active
                 </span>
@@ -166,17 +160,17 @@ const ZAPIN_STICKY_STATES = [
                 <div className="w-28 h-4 bg-black/60 rounded-b-xl mx-auto absolute top-0 left-1/2 -translate-x-1/2 z-20" />
 
                 <div className="w-full aspect-[9/17] rounded-[28px] bg-[#043E69] p-5 text-white flex flex-col justify-between border border-white/15 relative overflow-hidden">
-                  <div className="pt-3 flex justify-between items-center text-[10px] font-semibold text-blue-100/80">
-                    <span>ZapIN App</span>
+                  <div className="pt-3 flex justify-between items-center text-[10px] font-mono font-semibold text-blue-100/80">
+                    <span>ZapIn App</span>
                     <span className="text-[#FEC958] font-bold">ONLINE</span>
                   </div>
 
                   <div className="my-auto space-y-3">
-                    <div className="text-xs font-bold text-[#FEC958] uppercase tracking-wider">
+                    <div className="text-xs font-mono font-bold text-[#FEC958] uppercase tracking-wider">
                       Connected Grid Hub
                     </div>
                     <div className="text-lg font-bold">Predictive Charging Network</div>
-                    <div className="p-3 rounded-xl bg-white/10 border border-white/15 text-[11px] space-y-1">
+                    <div className="p-3 rounded-xl bg-white/10 border border-white/15 text-[11px] space-y-1 font-mono">
                       <div className="text-blue-100/70">Spot Lock Status</div>
                       <div className="text-xs font-bold text-[#FEC958]">GUARANTEED DOCK SCBD #02</div>
                     </div>
@@ -195,14 +189,15 @@ const ZAPIN_STICKY_STATES = [
       {/* 2. Signature Sticky Phone Experience */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="Product Experience"
+          index="01"
+          badge="PRODUCT EXPERIENCE"
           title={
             <>
               Interactive States of the{" "}
-              <AnimatedGradientText>ZapIN Driver Journey.</AnimatedGradientText>
+              <AnimatedGradientText>ZapIn Driver Journey.</AnimatedGradientText>
             </>
           }
-          description="Click through or inspect to observe how ZapIN handles every phase of the charging lifecycle."
+          description="Click through or inspect to observe how ZapIn handles every phase of the charging lifecycle."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mt-8">
@@ -221,7 +216,7 @@ const ZAPIN_STICKY_STATES = [
                     }`}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xs font-bold text-[#076FB8] bg-[#076FB8]/10 px-2.5 py-0.5 rounded-full border border-[#076FB8]/20">
+                      <span className="text-xs font-mono font-bold text-[#076FB8] bg-[#076FB8]/10 px-2.5 py-0.5 rounded-full border border-[#076FB8]/20">
                         {st.subtitle}
                       </span>
                     </div>
@@ -247,15 +242,15 @@ const ZAPIN_STICKY_STATES = [
 
               <div className="w-full aspect-[9/16] rounded-[32px] bg-[#022744] p-6 flex flex-col justify-between relative overflow-hidden border border-white/15">
                 {/* Header */}
-                <div className="pt-3 flex justify-between items-center text-[10px] font-semibold border-b border-white/10 pb-3">
-                  <span>ZapIN Live Interface</span>
+                <div className="pt-3 flex justify-between items-center text-[10px] font-mono font-semibold border-b border-white/10 pb-3">
+                  <span>ZapIn Live Interface</span>
                   <span className="text-[#FEC958] font-bold">{currentStep.badge}</span>
                 </div>
 
                 {/* State Screen Details */}
                 <div className="my-auto space-y-4">
                   <div className="space-y-1">
-                    <span className="text-[10px] font-semibold text-[#FEC958] uppercase">
+                    <span className="text-[10px] font-mono font-semibold text-[#FEC958] uppercase">
                       Active State Display
                     </span>
                     <h4 className="text-2xl font-bold text-white">{currentStep.screenContent.title}</h4>
@@ -299,7 +294,8 @@ const ZAPIN_STICKY_STATES = [
       {/* 3. Technical Architecture Data Flow */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="Technical Pipeline"
+          index="02"
+          badge="TECHNICAL PIPELINE"
           title={
             <>
               End-to-End Data Flow: From Driver App to{" "}
@@ -312,17 +308,17 @@ const ZAPIN_STICKY_STATES = [
         <div className="p-8 sm:p-12 rounded-3xl bg-white border border-[#076FB8]/15 shadow-xl space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-left">
             <div className="p-5 rounded-2xl bg-[#F0F7FB] border border-[#076FB8]/15 space-y-2.5">
-              <span className="inline-block text-[10px] font-bold text-[#076FB8] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#076FB8]/10 border border-[#076FB8]/20">
+              <span className="inline-block text-[10px] font-mono font-bold text-[#076FB8] uppercase tracking-wider">
                 01. Client Interface
               </span>
-              <div className="text-base font-bold text-[#043E69]">ZapIN Driver App</div>
+              <div className="text-base font-bold text-[#043E69]">ZapIn Driver App</div>
               <div className="text-xs text-[#043E69]/75 leading-relaxed">
                 React Native & Next.js user app with real-time station availability & spot reservations.
               </div>
             </div>
 
             <div className="p-5 rounded-2xl bg-[#F0F7FB] border border-[#076FB8]/15 space-y-2.5">
-              <span className="inline-block text-[10px] font-bold text-[#EE7797] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#EE7797]/15 border border-[#EE7797]/25">
+              <span className="inline-block text-[10px] font-mono font-bold text-[#EE7797] uppercase tracking-wider">
                 02. Machine Learning
               </span>
               <div className="text-base font-bold text-[#043E69]">Predictive ML Engine</div>
@@ -332,7 +328,7 @@ const ZAPIN_STICKY_STATES = [
             </div>
 
             <div className="p-5 rounded-2xl bg-[#F0F7FB] border border-[#076FB8]/15 space-y-2.5">
-              <span className="inline-block text-[10px] font-bold text-[#043E69] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#FEC958]/25 border border-[#FEC958]/40">
+              <span className="inline-block text-[10px] font-mono font-bold text-[#043E69] uppercase tracking-wider">
                 03. Cloud Broker
               </span>
               <div className="text-base font-bold text-[#043E69]">TLS MQTT Stream</div>
@@ -342,7 +338,7 @@ const ZAPIN_STICKY_STATES = [
             </div>
 
             <div className="p-5 rounded-2xl bg-[#F0F7FB] border border-[#076FB8]/15 space-y-2.5">
-              <span className="inline-block text-[10px] font-bold text-[#076FB8] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#076FB8]/10 border border-[#076FB8]/20">
+              <span className="inline-block text-[10px] font-mono font-bold text-[#076FB8] uppercase tracking-wider">
                 04. Edge Microcontroller
               </span>
               <div className="text-base font-bold text-[#043E69]">ESP32 Controller</div>
@@ -357,20 +353,21 @@ const ZAPIN_STICKY_STATES = [
       {/* 4. Circular Business Ecosystem Loop */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="Business Ecosystem"
+          index="03"
+          badge="BUSINESS ECOSYSTEM"
           title={
             <>
-              Zero CapEx Ecosystem for{" "}
+              Zero-CapEx Ecosystem for{" "}
               <AnimatedGradientText>Commercial Host Partners.</AnimatedGradientText>
             </>
           }
-          description="Property hosts monetize idle parking spaces while ZapTech provides hardware installation, AI software management, and automated revenue splits."
+          description="Property hosts monetize idle parking spaces while ZapIn provides hardware installation, AI software management, and automated revenue splits."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="p-8 rounded-3xl bg-white border border-[#076FB8]/15 shadow-lg space-y-3 flex flex-col justify-between">
             <div>
-              <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#076FB8] px-3 py-1 rounded-full bg-[#076FB8]/10 border border-[#076FB8]/20 mb-3">
+              <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-[#076FB8] mb-3">
                 Commercial Benefits
               </span>
               <h3 className="text-xl font-bold text-[#043E69] mb-2">Host Partner Economics</h3>
@@ -382,7 +379,7 @@ const ZAPIN_STICKY_STATES = [
 
           <div className="p-8 rounded-3xl bg-white border border-[#076FB8]/15 shadow-lg space-y-3 flex flex-col justify-between">
             <div>
-              <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#043E69] px-3 py-1 rounded-full bg-[#FEC958]/25 border border-[#FEC958]/40 mb-3">
+              <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-[#043E69] mb-3">
                 Network Effect
               </span>
               <h3 className="text-xl font-bold text-[#043E69] mb-2">Flywheel Expansion Loop</h3>
@@ -394,7 +391,7 @@ const ZAPIN_STICKY_STATES = [
 
           <div className="p-8 rounded-3xl bg-white border border-[#076FB8]/15 shadow-lg space-y-3 flex flex-col justify-between">
             <div>
-              <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#EE7797] px-3 py-1 rounded-full bg-[#EE7797]/15 border border-[#EE7797]/25 mb-3">
+              <span className="inline-block text-[11px] font-mono font-bold uppercase tracking-wider text-[#EE7797] mb-3">
                 Hardware Validation
               </span>
               <h3 className="text-xl font-bold text-[#043E69] mb-2">MVP Transparency Matrix</h3>
@@ -406,17 +403,16 @@ const ZAPIN_STICKY_STATES = [
         </div>
       </section>
 
-      {/* Back to Corporate Homepage CTA */}
+      {/* Back to Homepage CTA */}
       <div className="text-center pt-8 max-w-7xl mx-auto px-4">
         <Link
           href="/"
           className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#076FB8] text-white font-bold hover:bg-[#043E69] transition-all shadow-lg hover:shadow-xl hover:scale-105 text-sm"
         >
-          <span>Return to ZapTech Corporate Homepage</span>
+          <span>Return to ZapIn Homepage</span>
           <ArrowRight className="w-5 h-5" />
         </Link>
       </div>
     </div>
   );
 }
-

@@ -11,33 +11,38 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ZapTech — Intelligent Energy & Clean Technology",
+  title: "ZapIn — Powering Your Journey, Smarter!",
   description:
-    "ZapTech builds intelligent clean-energy infrastructure by combining AI, IoT and smart hardware for a more connected and sustainable future.",
+    "ZapIn connects real-time charging infrastructure, predictive intelligence, and connected charging to turn charging uncertainty into an intelligent journey.",
   keywords: [
-    "ZapTech",
-    "ZapIN",
-    "Clean-Tech Indonesia",
-    "EV Infrastructure",
-    "AI Charging Rerouting",
-    "IoT Energy Metering",
+    "ZapIn",
+    "EV Charging Indonesia",
     "Smart EV Charging",
+    "AI Availability Prediction",
+    "Dynamic Rerouting",
+    "Zero-CapEx B2B UMKM",
+    "Clean Energy Mobility",
   ],
-  authors: [{ name: "ZapTech Team" }],
+  authors: [{ name: "ZapIn Team" }],
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
-    title: "ZapTech — Intelligent Energy & Clean Technology",
+    title: "ZapIn — Powering Your Journey, Smarter!",
     description:
-      "Accelerating Indonesia's Clean Mobility Through Intelligent Energy Innovation.",
-    url: "https://zaptech.id",
-    siteName: "ZapTech",
+      "From uncertainty to intelligent movement. Intelligent EV charging ecosystem.",
+    url: "https://zapin.id",
+    siteName: "ZapIn",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZapTech — Intelligent Energy Infrastructure",
+    title: "ZapIn — Powering Your Journey, Smarter!",
     description:
-      "Pioneering clean-tech hardware, edge IoT telemetry, and AI dynamic rerouting for EV infrastructure.",
+      "Predictive AI availability, dynamic rerouting, 15-minute temporary reservation holds, and zero-CapEx commercial charging infrastructure.",
   },
 };
 

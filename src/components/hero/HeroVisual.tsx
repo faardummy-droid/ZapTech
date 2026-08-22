@@ -62,7 +62,7 @@ export const HeroVisual: React.FC = () => {
               <Radio className="w-4 h-4 animate-pulse" />
             </div>
             <div>
-              <div className="text-xs font-semibold text-slate-800">ZapTech IoT Grid Sync</div>
+              <div className="text-xs font-semibold text-slate-800">ZapIn IoT Grid Sync</div>
               <div className="text-[10px] text-slate-500 flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
                 Sub-Second Telemetry Active

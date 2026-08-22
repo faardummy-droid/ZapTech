@@ -15,18 +15,17 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "about", label: "About" },
   { id: "challenge", label: "Challenge" },
   { id: "solution", label: "Solution" },
-  { id: "technology", label: "Technology" },
   { id: "featured-product", label: "Featured Product", isProduct: true },
   { id: "impact", label: "Impact" },
+  { id: "growth-map", label: "Growth Map" },
   { id: "team", label: "Team" },
-  { id: "milestones", label: "Milestones" },
 ];
 
 export const FEATURED_PRODUCTS: FeaturedProductConfig[] = [
   {
-    name: "ZapIN",
+    name: "ZapIn",
     slug: "/technology/zapin",
-    tagline: "Intelligent Clean Mobility & EV Charging Ecosystem",
+    tagline: "Powering Your Journey, Smarter!",
     status: "featured",
   },
 ];

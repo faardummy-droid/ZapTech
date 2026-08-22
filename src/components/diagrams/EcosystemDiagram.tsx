@@ -49,8 +49,8 @@ const NODES: EcosystemNode[] = [
     highlightColor: "#EE7797",
   },
   {
-    id: "zaptech-cloud",
-    name: "ZapTech Cloud",
+    id: "zapin-cloud",
+    name: "ZapIn Cloud",
     category: "Backend & Broker",
     icon: <Cloud className="w-5 h-5 text-[#076FB8]" />,
     description: "Event broker handling telemetry stream, sessions & settlement.",

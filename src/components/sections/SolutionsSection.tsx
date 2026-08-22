@@ -10,14 +10,15 @@ export const SolutionsSection: React.FC = () => {
     <section id="solutions-legacy" className="py-24 relative bg-[#F0F7FB] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader
-          index="03 — SOLUTION"
+          index="03"
+          badge="SOLUTION"
           title={
             <>
               An Intelligent Infrastructure Layer{" "}
               <AnimatedGradientText>Connecting Energy & People.</AnimatedGradientText>
             </>
           }
-          description="ZapTech bridges drivers, hardware, and host business partners through an integrated software and edge hardware intelligence layer."
+          description="ZapIn bridges drivers, hardware, and host business partners through an integrated software and edge hardware intelligence layer."
         />
 
         <EcosystemDiagram />

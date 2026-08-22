@@ -19,7 +19,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: "m3",
-    title: "ZapIN AI Dynamic Rerouting Engine v1",
+    title: "ZapIn AI Dynamic Rerouting Engine v1",
     category: "Software / R&D",
     date: "Q1 2026",
     description: "Built predictive queue probability algorithm and mobile routing SDK for EV drivers in urban hubs.",
@@ -30,7 +30,7 @@ export const MILESTONES: Milestone[] = [
     title: "Early Partner Pilot & Field Deployment",
     category: "Field Operations",
     date: "Q2 2026",
-    description: "Deploying 50+ pilot chargers across commercial host partners in Greater Jakarta & West Java.",
+    description: "Deploying 50+ pilot chargers across commercial host partners in East Java & urban commercial hubs.",
     status: "upcoming",
   },
   {
@@ -38,7 +38,7 @@ export const MILESTONES: Milestone[] = [
     title: "National Network Expansion & Clean-Grid Sync",
     category: "Scaling",
     date: "Q3 2026+",
-    description: "Expanding host partner ecosystem and integrating solar microgrid balance management into ZapTech Cloud.",
+    description: "Expanding host partner ecosystem and integrating solar microgrid balance management into ZapIn Cloud.",
     status: "upcoming",
   },
 ];

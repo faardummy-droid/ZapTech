@@ -16,7 +16,7 @@ export const IMPACT_METRICS: ImpactMetric[] = [
     value: 45,
     suffix: "%",
     prefix: "+",
-    description: "Average foot-traffic & dwell-time spending boost for host businesses operating ZapTech infrastructure.",
+    description: "Average foot-traffic & dwell-time spending boost for host businesses operating ZapIn infrastructure.",
     category: "Economic",
   },
   {

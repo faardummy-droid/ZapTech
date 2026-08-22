@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function TechnologyPageRedirect() {
-  redirect("/#technology");
+  redirect("/technology/zapin");
 }

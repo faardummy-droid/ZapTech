@@ -40,7 +40,7 @@ const ARCH_COMPONENTS: ComponentDetail[] = [
   {
     id: "backend-cloud",
     layer: "02. Core Business Engine",
-    name: "ZapTech Cloud Core & Event Broker",
+    name: "ZapIn Cloud Core & Event Broker",
     icon: <Server className="w-5 h-5 text-[#076FB8]" />,
     protocol: "REST API & EMQX MQTT Broker",
     summary:
@@ -60,7 +60,7 @@ const ARCH_COMPONENTS: ComponentDetail[] = [
   {
     id: "iot-controller",
     layer: "04. Edge Microcontroller",
-    name: "ZapTech Embedded ESP32 Board",
+    name: "ZapIn Embedded ESP32 Board",
     icon: <Cpu className="w-5 h-5 text-[#FEC958]" />,
     protocol: "MQTT over TLS / Wi-Fi & 4G",
     summary:

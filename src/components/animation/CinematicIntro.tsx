@@ -13,7 +13,7 @@ export const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) =>
 
   useEffect(() => {
     // Check if intro has already been played in this browser session
-    const hasSeenIntro = sessionStorage.getItem("zaptech_intro_seen");
+    const hasSeenIntro = sessionStorage.getItem("zapin_intro_seen");
     if (hasSeenIntro) {
       onComplete();
       return;
@@ -22,9 +22,9 @@ export const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) =>
     const timer1 = setTimeout(() => setScene(1), 300);   // Scene 1: Energy is everywhere
     const timer2 = setTimeout(() => setScene(2), 1400);  // Scene 2: Intelligence changes everything
     const timer3 = setTimeout(() => setScene(3), 2500);  // Scene 3: We build what comes next
-    const timer4 = setTimeout(() => setScene(4), 3600);  // Scene 4: ZAPTECH Logo
+    const timer4 = setTimeout(() => setScene(4), 3600);  // Scene 4: ZapIn Logo
     const timer5 = setTimeout(() => {
-      sessionStorage.setItem("zaptech_intro_seen", "true");
+      sessionStorage.setItem("zapin_intro_seen", "true");
       onComplete();
     }, 4800); // Scene 5: Complete & Reveal Hero
 
@@ -38,7 +38,7 @@ export const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) =>
   }, [onComplete]);
 
   const handleSkip = () => {
-    sessionStorage.setItem("zaptech_intro_seen", "true");
+    sessionStorage.setItem("zapin_intro_seen", "true");
     onComplete();
   };
 
@@ -118,10 +118,10 @@ export const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) =>
                 </div>
               </div>
               <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-[#043E69]">
-                Zap<span className="text-[#076FB8]">Tech</span>
+                Zap<span className="text-[#EE7797]">In</span>
               </h1>
               <p className="text-xs font-mono text-[#076FB8]/70 uppercase tracking-widest">
-                Intelligent Energy Infrastructure
+                Powering Your Journey, Smarter!
               </p>
             </motion.div>
           )}

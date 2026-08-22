@@ -75,7 +75,7 @@ export const StateMachine: React.FC = () => {
           Hardware & Session State Machine
         </h3>
         <p className="text-xs sm:text-sm text-slate-400 mt-2">
-          Automated lifecycle state transitions managed by ZapTech IoT Edge controllers.
+          Automated lifecycle state transitions managed by ZapIn IoT Edge controllers.
         </p>
       </div>
 

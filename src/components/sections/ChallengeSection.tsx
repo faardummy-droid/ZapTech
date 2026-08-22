@@ -1,17 +1,66 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { Car, Building2 } from "lucide-react";
 import { SectionHeader } from "../ui/SectionHeader";
 import { AnimatedGradientText } from "../animation/AnimatedGradientText";
-import { RevealSection } from "../animation/RevealSection";
 import { IMAGERY } from "@/data/imagery";
 
+const EV_DRIVER_CHALLENGES = [
+  {
+    num: "01",
+    title: "Availability",
+    desc: "Is the charger actually available right now, or is the station offline?",
+  },
+  {
+    num: "02",
+    title: "Timing",
+    desc: "Will it still be available when I arrive at the station in 15 minutes?",
+  },
+  {
+    num: "03",
+    title: "Waiting",
+    desc: "How long will I have to wait in an uncoordinated queue if all docks are occupied?",
+  },
+  {
+    num: "04",
+    title: "Route",
+    desc: "Should I continue driving to my target hub or reroute to a safer alternative immediately?",
+  },
+];
+
+const COMMERCIAL_HOST_CHALLENGES = [
+  {
+    num: "01",
+    title: "Upfront Cost",
+    desc: "Traditional charging hardware and grid capacity upgrades require steep capital investment.",
+  },
+  {
+    num: "02",
+    title: "Utilization",
+    desc: "How can commercial parking spaces attract steady, high-intent EV driver traffic daily?",
+  },
+  {
+    num: "03",
+    title: "Operations",
+    desc: "How can active charging sessions and hardware uptime be monitored with zero operational burden?",
+  },
+  {
+    num: "04",
+    title: "Revenue",
+    desc: "How can charging infrastructure generate sustainable, transparent automated revenue for hosts?",
+  },
+];
+
 export const ChallengeSection: React.FC = () => {
+  const [activePerspective, setActivePerspective] = useState<"driver" | "host">("driver");
+
   return (
-    <section id="challenge" className="py-24 relative bg-[#043E69] text-white overflow-hidden">
-      {/* Background Photography Overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-15 mix-blend-overlay">
+    <section id="challenge" className="py-28 relative bg-[#043E69] text-white overflow-hidden">
+      {/* Consistent Static Background Image Overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-15 mix-blend-overlay z-0">
         <Image
           src={IMAGERY.challengeFriction.src}
           alt={IMAGERY.challengeFriction.alt}
@@ -20,150 +69,170 @@ export const ChallengeSection: React.FC = () => {
         />
       </div>
 
-      {/* Vector Ambient Accents */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#076FB8]/30 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-[#EE7797]/25 blur-3xl pointer-events-none" />
+      {/* Consistent Static Ambient Lighting */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#076FB8]/25 rounded-full blur-3xl pointer-events-none z-0" />
+      <div className="absolute bottom-0 left-10 w-96 h-96 bg-[#EE7797]/15 rounded-full blur-3xl pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Editorial Section Title */}
         <SectionHeader
-          badge="Industry Challenge"
+          index="02"
+          badge="CHALLENGE"
           theme="dark"
           title={
             <span className="text-white">
-              The Energy Transition Is Growing.{" "}
+              Two Sides of the{" "}
               <AnimatedGradientText className="text-white">
-                Infrastructure Must Evolve
-              </AnimatedGradientText>{" "}
-              With It.
+                Charging Bottleneck.
+              </AnimatedGradientText>
             </span>
           }
-          description="As EV adoption accelerates, existing charging infrastructure faces severe bottlenecks on both driver and business partner fronts."
+          description="Accelerating EV adoption creates distinct operational uncertainties for both the driver behind the wheel and the commercial property host."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Card 01: EV Driver Perspective */}
-          <RevealSection direction="left">
-            <div className="p-8 sm:p-9 rounded-3xl bg-[#022744]/95 border border-white/20 shadow-2xl backdrop-blur-xl relative overflow-hidden group hover:border-[#076FB8]/60 transition-all flex flex-col justify-between h-full">
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="text-xs font-bold text-[#FEC958] uppercase tracking-wider px-3 py-1 rounded-full bg-[#FEC958]/15 border border-[#FEC958]/30">
-                    For EV Drivers
-                  </span>
-                  <span className="text-[11px] font-semibold text-rose-400 bg-rose-500/10 px-2.5 py-0.5 rounded-full border border-rose-500/20">
-                    High Friction Zone
-                  </span>
-                </div>
-
-                <h3 className="text-2xl font-bold text-white mb-2">The EV Driver Experience</h3>
-                <p className="text-xs text-blue-100/90 mb-6 leading-relaxed">
-                  EV owners encounter constant uncertainty, arrival anxiety, and wasted charging queues throughout urban journeys.
-                </p>
-
-                {/* Infographic Problem Cards (No Boxed Icons) */}
-                <div className="space-y-3">
-                  <div className="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md hover:border-white/30 transition-all">
-                    <div className="flex items-center justify-between text-[11px] mb-1.5">
-                      <span className="font-bold text-white text-sm">Range & Search Anxiety</span>
-                      <span className="text-[#EE7797] font-semibold text-[10px] uppercase tracking-wider bg-[#EE7797]/15 px-2 py-0.5 rounded">
-                        Fragmented Data
-                      </span>
-                    </div>
-                    <p className="text-xs text-blue-100/80 leading-relaxed">
-                      Manual station discovery across isolated apps with outdated charger statuses and inaccurate GPS locations.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md hover:border-white/30 transition-all">
-                    <div className="flex items-center justify-between text-[11px] mb-1.5">
-                      <span className="font-bold text-white text-sm">Uncertain Charger Availability</span>
-                      <span className="text-[#FEC958] font-semibold text-[10px] uppercase tracking-wider bg-[#FEC958]/15 px-2 py-0.5 rounded">
-                        Occupancy Spikes
-                      </span>
-                    </div>
-                    <p className="text-xs text-blue-100/80 leading-relaxed">
-                      Arriving at target charging spots only to find them occupied, out-of-order, or blocked without advance notice.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md hover:border-white/30 transition-all">
-                    <div className="flex items-center justify-between text-[11px] mb-1.5">
-                      <span className="font-bold text-white text-sm">Wasted Idle Waiting Time</span>
-                      <span className="text-blue-300 font-semibold text-[10px] uppercase tracking-wider bg-[#076FB8]/25 px-2 py-0.5 rounded">
-                        20–45 Min Delay
-                      </span>
-                    </div>
-                    <p className="text-xs text-blue-100/80 leading-relaxed">
-                      Unpredictable queue congestion during peak commuting hours draining productive hours for mobility users.
-                    </p>
-                  </div>
-                </div>
+        {/* Dual-Perspective Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mt-12">
+          
+          {/* Left Vertical Perspective Selector Buttons */}
+          <div className="lg:col-span-4 flex lg:flex-col gap-4 z-20">
+            {/* EV Driver Perspective Button */}
+            <button
+              onClick={() => setActivePerspective("driver")}
+              className={`p-5 rounded-2xl border text-left transition-all duration-300 flex items-center gap-4 cursor-pointer ${
+                activePerspective === "driver"
+                  ? "bg-white/15 border-[#076FB8] shadow-lg ring-1 ring-[#076FB8]/50 opacity-100 scale-[1.02]"
+                  : "bg-white/5 border-white/10 opacity-40 hover:opacity-75"
+              }`}
+            >
+              <div
+                className={`w-11 h-11 rounded-xl flex items-center justify-center transition-colors ${
+                  activePerspective === "driver"
+                    ? "bg-[#076FB8] text-white shadow-md"
+                    : "bg-white/10 text-white/60"
+                }`}
+              >
+                <Car className="w-5 h-5" />
               </div>
-            </div>
-          </RevealSection>
-
-          {/* Card 02: Host Partner Perspective */}
-          <RevealSection direction="right">
-            <div className="p-8 sm:p-9 rounded-3xl bg-[#022744]/95 border border-white/20 shadow-2xl backdrop-blur-xl relative overflow-hidden group hover:border-[#FEC958]/50 transition-all flex flex-col justify-between h-full">
               <div>
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="text-xs font-bold text-[#FEC958] uppercase tracking-wider px-3 py-1 rounded-full bg-[#FEC958]/15 border border-[#FEC958]/30">
-                    For Commercial Hosts
-                  </span>
-                  <span className="text-[11px] font-semibold text-amber-300 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
-                    CapEx & Grid Barrier
-                  </span>
-                </div>
-
-                <h3 className="text-2xl font-bold text-white mb-2">The Commercial Host Challenge</h3>
-                <p className="text-xs text-blue-100/90 mb-6 leading-relaxed">
-                  Commercial property owners want to monetize parking spaces but face high capital risk, complex load balancing, and technical downtime.
-                </p>
-
-                {/* Infographic Problem Cards (No Boxed Icons) */}
-                <div className="space-y-3">
-                  <div className="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md hover:border-white/30 transition-all">
-                    <div className="flex items-center justify-between text-[11px] mb-1.5">
-                      <span className="font-bold text-white text-sm">High Initial CapEx Barrier</span>
-                      <span className="text-[#FEC958] font-semibold text-[10px] uppercase tracking-wider bg-[#FEC958]/15 px-2 py-0.5 rounded">
-                        High Risk
-                      </span>
-                    </div>
-                    <p className="text-xs text-blue-100/80 leading-relaxed">
-                      Prohibitive upfront equipment and installation costs preventing retail and hospitality venues from participating.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md hover:border-white/30 transition-all">
-                    <div className="flex items-center justify-between text-[11px] mb-1.5">
-                      <span className="font-bold text-white text-sm">Operational & Grid Complexity</span>
-                      <span className="text-[#EE7797] font-semibold text-[10px] uppercase tracking-wider bg-[#EE7797]/15 px-2 py-0.5 rounded">
-                        Load Demands
-                      </span>
-                    </div>
-                    <p className="text-xs text-blue-100/80 leading-relaxed">
-                      Managing peak electrical load constraints, complex maintenance schedules, and frequent charger hardware faults.
-                    </p>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-md hover:border-white/30 transition-all">
-                    <div className="flex items-center justify-between text-[11px] mb-1.5">
-                      <span className="font-bold text-white text-sm">Opaque Revenue & Reconciliation</span>
-                      <span className="text-blue-300 font-semibold text-[10px] uppercase tracking-wider bg-[#076FB8]/25 px-2 py-0.5 rounded">
-                        Manual Auditing
-                      </span>
-                    </div>
-                    <p className="text-xs text-blue-100/80 leading-relaxed">
-                      Lack of real-time IoT power metering resulting in delayed settlements and opaque monthly charging revenue splits.
-                    </p>
-                  </div>
-                </div>
+                <span className="text-[10px] font-mono font-bold tracking-widest text-[#FEC958] uppercase block">
+                  PERSPECTIVE 01
+                </span>
+                <span className="text-base font-black text-white block">
+                  EV DRIVER
+                </span>
               </div>
-            </div>
-          </RevealSection>
+            </button>
+
+            {/* Commercial Host Perspective Button */}
+            <button
+              onClick={() => setActivePerspective("host")}
+              className={`p-5 rounded-2xl border text-left transition-all duration-300 flex items-center gap-4 cursor-pointer ${
+                activePerspective === "host"
+                  ? "bg-white/15 border-[#FEC958] shadow-lg ring-1 ring-[#FEC958]/50 opacity-100 scale-[1.02]"
+                  : "bg-white/5 border-white/10 opacity-40 hover:opacity-75"
+              }`}
+            >
+              <div
+                className={`w-11 h-11 rounded-xl flex items-center justify-center transition-colors ${
+                  activePerspective === "host"
+                    ? "bg-[#FEC958] text-[#043E69] shadow-md"
+                    : "bg-white/10 text-white/60"
+                }`}
+              >
+                <Building2 className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono font-bold tracking-widest text-[#FEC958] uppercase block">
+                  PERSPECTIVE 02
+                </span>
+                <span className="text-base font-black text-white block">
+                  COMMERCIAL HOST
+                </span>
+              </div>
+            </button>
+          </div>
+
+          {/* Right Column: Equal-Height Dynamic View (No Shifting) */}
+          <div className="lg:col-span-8 min-h-[480px] lg:min-h-[500px]">
+            <AnimatePresence mode="wait">
+              {activePerspective === "driver" ? (
+                /* Perspective 01: EV Driver Only */
+                <motion.div
+                  key="driver-perspective"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="space-y-6 flex flex-col justify-start"
+                >
+                  <div className="h-20 sm:h-22 flex flex-col justify-end border-b border-white/15 pb-3">
+                    <span className="text-xs font-mono font-bold text-[#076FB8] tracking-widest uppercase block mb-1">
+                      PERSPECTIVE 01 — EV DRIVER
+                    </span>
+                    <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+                      Finding a charger shouldn&apos;t feel uncertain.
+                    </h3>
+                  </div>
+
+                  <div className="space-y-5 pt-2">
+                    {EV_DRIVER_CHALLENGES.map((item) => (
+                      <div
+                        key={item.num}
+                        className="border-l-2 border-[#076FB8] pl-5 sm:pl-6 py-1 min-h-[64px] flex flex-col justify-center hover:border-[#FEC958] transition-colors"
+                      >
+                        <div className="text-xs font-mono font-bold text-[#FEC958] uppercase tracking-wider">
+                          {item.num} — {item.title}
+                        </div>
+                        <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed font-normal mt-0.5">
+                          {item.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ) : (
+                /* Perspective 02: Commercial Host Only */
+                <motion.div
+                  key="host-perspective"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="space-y-6 flex flex-col justify-start"
+                >
+                  <div className="h-20 sm:h-22 flex flex-col justify-end border-b border-white/15 pb-3">
+                    <span className="text-xs font-mono font-bold text-[#FEC958] tracking-widest uppercase block mb-1">
+                      PERSPECTIVE 02 — COMMERCIAL HOST
+                    </span>
+                    <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+                      Charging infrastructure creates a different set of challenges.
+                    </h3>
+                  </div>
+
+                  <div className="space-y-5 pt-2">
+                    {COMMERCIAL_HOST_CHALLENGES.map((item) => (
+                      <div
+                        key={item.num}
+                        className="border-l-2 border-[#FEC958] pl-5 sm:pl-6 py-1 min-h-[64px] flex flex-col justify-center hover:border-[#EE7797] transition-colors"
+                      >
+                        <div className="text-xs font-mono font-bold text-[#FEC958] uppercase tracking-wider">
+                          {item.num} — {item.title}
+                        </div>
+                        <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed font-normal mt-0.5">
+                          {item.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
         </div>
+
       </div>
     </section>
   );
 };
-
-

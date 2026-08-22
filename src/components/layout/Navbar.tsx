@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap, ChevronRight, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronRight, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_ITEMS, FEATURED_PRODUCTS } from "@/data/navigation";
 
@@ -74,31 +75,29 @@ export const Navbar: React.FC = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-[#076FB8]/10 shadow-soft py-3"
-          : "bg-transparent py-5"
+          ? "bg-white/95 backdrop-blur-md border-b border-[#076FB8]/10 shadow-soft py-2.5"
+          : "bg-transparent py-4 sm:py-5"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#076FB8] via-[#EE7797] to-[#FEC958] p-0.5 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
-              <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
-                <Zap className="w-5 h-5 text-[#076FB8] fill-[#076FB8]/20 group-hover:rotate-12 transition-transform duration-300" />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-[#043E69] leading-none">
-                Zap<span className="text-[#076FB8]">Tech</span>
-              </span>
-              <span className="text-[10px] font-semibold text-[#076FB8]/60 uppercase tracking-widest leading-none mt-1">
-                Clean Energy R&D
-              </span>
+          
+          {/* Brand Logo: Logo 3.svg */}
+          <Link href="/" className="flex items-center group shrink-0">
+            <div className="h-9 sm:h-11 w-36 sm:w-44 relative group-hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/images/logo-3.svg"
+                alt="ZapIn — Powering Your Journey, Smarter!"
+                fill
+                sizes="(max-width: 640px) 144px, 176px"
+                className="object-contain object-left"
+                priority
+              />
             </div>
           </Link>
 
           {/* Desktop Single-Page Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#076FB8]/15 shadow-sm">
+          <nav className="hidden lg:flex items-center gap-1 bg-white/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#076FB8]/15 shadow-sm">
             {NAV_ITEMS.map((item) => {
               if (item.isProduct) {
                 const isProductActive = pathname.startsWith("/technology/zapin") || activeSection === "featured-product";
@@ -112,7 +111,7 @@ export const Navbar: React.FC = () => {
                     <button
                       onClick={(e) => handleNavClick(e, "featured-product")}
                       className={cn(
-                        "px-3 py-1.5 rounded-full text-xs font-semibold transition-all relative flex items-center gap-1",
+                        "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all relative flex items-center gap-1",
                         isProductActive
                           ? "text-[#076FB8] font-bold"
                           : "text-[#043E69]/70 hover:text-[#076FB8]"
@@ -122,14 +121,14 @@ export const Navbar: React.FC = () => {
                       <ChevronDown className="w-3.5 h-3.5 opacity-60" />
                       {isProductActive && (
                         <motion.div
-                          layoutId="activeNavLine"
+                          layoutId="activeNavUnderline"
                           className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#076FB8] rounded-full"
                           transition={{ type: "spring", stiffness: 380, damping: 30 }}
                         />
                       )}
                     </button>
 
-                    {/* Data-Driven Featured Product Dropdown */}
+                    {/* Featured Product Dropdown */}
                     <AnimatePresence>
                       {productDropdownOpen && (
                         <motion.div
@@ -165,7 +164,7 @@ export const Navbar: React.FC = () => {
                   href={`/#${item.id}`}
                   onClick={(e) => handleNavClick(e, item.id)}
                   className={cn(
-                    "px-3 py-1.5 rounded-full text-xs font-semibold transition-all relative",
+                    "px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all relative",
                     isActive
                       ? "text-[#076FB8] font-bold"
                       : "text-[#043E69]/70 hover:text-[#076FB8]"
@@ -174,7 +173,7 @@ export const Navbar: React.FC = () => {
                   <span>{item.label}</span>
                   {isActive && (
                     <motion.div
-                      layoutId="activeNavLine"
+                      layoutId="activeNavUnderline"
                       className="absolute bottom-0 left-3 right-3 h-0.5 bg-[#076FB8] rounded-full"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
@@ -186,14 +185,13 @@ export const Navbar: React.FC = () => {
 
           {/* Desktop CTA Button */}
           <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="/#contact"
-              onClick={(e) => handleNavClick(e, "contact")}
+            <Link
+              href="/contact"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#076FB8] text-white text-sm font-semibold hover:bg-[#043E69] transition-all shadow-md shadow-[#076FB8]/20 hover:shadow-lg hover:scale-105 active:scale-95"
             >
               <span>Contact</span>
               <ChevronRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -252,14 +250,14 @@ export const Navbar: React.FC = () => {
                 );
               })}
               <div className="pt-3 border-t border-[#076FB8]/10">
-                <a
-                  href="/#contact"
-                  onClick={(e) => handleNavClick(e, "contact")}
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl bg-[#076FB8] text-white font-semibold shadow-md"
                 >
-                  <span>Contact ZapTech</span>
+                  <span>Contact Us</span>
                   <ChevronRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

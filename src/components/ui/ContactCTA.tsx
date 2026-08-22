@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Zap, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { AnimatedGradientText } from "../animation/AnimatedGradientText";
 import { RevealSection } from "../animation/RevealSection";
 
@@ -18,7 +18,7 @@ export const ContactCTA: React.FC = () => {
             <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-[#FEC958] border border-white/20 backdrop-blur-md">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Partner With ZapTech</span>
+                <span>Partner With ZapIn</span>
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
@@ -43,7 +43,7 @@ export const ContactCTA: React.FC = () => {
                   href="/technology/zapin"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white/10 text-white font-bold border border-white/20 hover:bg-white/20 transition-all text-sm"
                 >
-                  <span>Explore ZapIN Platform</span>
+                  <span>Explore ZapIn Platform</span>
                 </Link>
               </div>
             </div>

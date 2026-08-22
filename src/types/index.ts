@@ -7,6 +7,10 @@ export interface TeamMember {
   linkedin?: string;
   github?: string;
   email?: string;
+  education?: string;
+  experience?: string[];
+  focusAreas?: string[];
+  statement?: string;
 }
 
 export interface Product {
